@@ -1,0 +1,4319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magizh Toys and Tales | Children's Book Store</title>
+    <style>
+        :root {
+            --hot-pink: #FF007F;
+            --turquoise: #40E0D0;
+            --light-pink: #FFE6F2;
+            --light-turquoise: #E6F9F6;
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --sale-red: #FF4444;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --info: #2196F3;
+            --profit-green: #2E7D32;
+            --loss-red: #C62828;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--hot-pink) 0%, var(--turquoise) 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 28px;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-icon {
+            font-size: 32px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .icon-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .cart-count, .wishlist-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--sale-red);
+            color: white;
+            font-size: 12px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -8px;
+            right: 55px;
+            background-color: var(--warning);
+            color: white;
+            font-size: 12px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--hot-pink);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(to right, var(--hot-pink), var(--turquoise));
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 0, 127, 0.4);
+        }
+        
+        /* Category Browsing Section */
+        .category-browsing {
+            padding: 60px 0;
+            background-color: var(--light-pink);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: var(--hot-pink);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--turquoise);
+            border-radius: 2px;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .category-tab {
+            background-color: white;
+            border: 2px solid var(--turquoise);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        .category-tab:hover, .category-tab.active {
+            background-color: var(--turquoise);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .subcategory-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .subcategory-btn {
+            background-color: var(--light-turquoise);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .subcategory-btn:hover, .subcategory-btn.active {
+            background-color: var(--turquoise);
+            color: white;
+        }
+        
+        .age-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .age-filter-btn {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 15px;
+            font-size: 14px;
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .age-filter-btn:hover, .age-filter-btn.active {
+            background-color: var(--hot-pink);
+            color: white;
+            border-color: var(--hot-pink);
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--sale-red);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 14px;
+            z-index: 10;
+        }
+        
+        .wishlist-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--hot-pink);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .wishlist-btn:hover, .wishlist-btn.active {
+            background-color: var(--hot-pink);
+            color: white;
+        }
+        
+        /* Product Image Carousel */
+        .product-image-carousel {
+            height: 200px;
+            background-color: var(--light-turquoise);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--dark-gray);
+            transition: all 0.3s;
+        }
+        
+        .carousel-btn:hover {
+            background-color: white;
+        }
+        
+        .carousel-prev {
+            left: 10px;
+        }
+        
+        .carousel-next {
+            right: 10px;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+            height: 44px;
+            overflow: hidden;
+        }
+        
+        .product-category {
+            display: inline-block;
+            background-color: var(--light-turquoise);
+            color: var(--turquoise);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .product-subcategory {
+            display: inline-block;
+            background-color: #F0F8FF;
+            color: #4169E1;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+        }
+        
+        .product-age {
+            display: inline-block;
+            background-color: #FFF0F5;
+            color: var(--hot-pink);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            margin-left: 5px;
+        }
+        
+        .stock-status {
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .stock-in {
+            color: var(--success);
+        }
+        
+        .stock-out {
+            color: var(--sale-red);
+        }
+        
+        .stock-low {
+            color: var(--warning);
+        }
+        
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--hot-pink);
+        }
+        
+        .original-price {
+            font-size: 16px;
+            color: var(--medium-gray);
+            text-decoration: line-through;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            background-color: var(--turquoise);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #30c9b9;
+        }
+        
+        .add-to-cart:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        /* Category Sections */
+        .category-section {
+            padding: 60px 0;
+        }
+        
+        .category-section:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--turquoise);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--turquoise);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Modal for Cart/Wishlist */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--medium-gray);
+        }
+        
+        .modal h2 {
+            color: var(--hot-pink);
+            margin-bottom: 20px;
+        }
+        
+        .cart-item, .wishlist-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-image, .wishlist-item-image {
+            width: 70px;
+            height: 70px;
+            background-color: var(--light-turquoise);
+            border-radius: 8px;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .cart-item-image img, .wishlist-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-details, .wishlist-item-details {
+            flex-grow: 1;
+        }
+        
+        .cart-item-title, .wishlist-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price, .wishlist-item-price {
+            color: var(--hot-pink);
+            font-weight: bold;
+        }
+        
+        .cart-item-actions, .wishlist-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-btn {
+            background-color: var(--light-gray);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--sale-red);
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .cart-total, .wishlist-empty {
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--hot-pink);
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            background: linear-gradient(to right, var(--hot-pink), var(--turquoise));
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .wishlist-empty {
+            text-align: center;
+            color: var(--medium-gray);
+            font-style: italic;
+        }
+        
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            padding: 40px 0;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .admin-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .admin-tab {
+            background-color: white;
+            border: 2px solid var(--turquoise);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .admin-tab:hover, .admin-tab.active {
+            background-color: var(--turquoise);
+            color: white;
+        }
+        
+        .admin-tab-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        /* Category Management */
+        .category-management {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .category-card {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .category-name {
+            font-weight: bold;
+            color: var(--turquoise);
+            font-size: 18px;
+        }
+        
+        .subcategory-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+        
+        .subcategory-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: white;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        
+        /* Reports Dashboard */
+        .reports-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .report-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+        
+        .report-card h3 {
+            color: var(--medium-gray);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .report-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--hot-pink);
+            margin-bottom: 5px;
+        }
+        
+        .report-change {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .report-change.positive {
+            color: var(--success);
+        }
+        
+        .report-change.negative {
+            color: var(--sale-red);
+        }
+        
+        /* Products Table */
+        .products-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .products-table th {
+            background-color: var(--light-turquoise);
+            color: var(--turquoise);
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 2px solid var(--turquoise);
+        }
+        
+        .products-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .products-table tr:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Forms */
+        .admin-form {
+            max-width: 800px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-gray);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--turquoise);
+            outline: none;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--turquoise);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #30c9b9;
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .btn-danger {
+            background-color: var(--sale-red);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #ff3333;
+        }
+        
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .table-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        /* Image Upload */
+        .image-upload-container {
+            margin-top: 20px;
+        }
+        
+        .image-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .preview-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+        
+        .upload-btn {
+            background-color: var(--hot-pink);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        /* Reports Section */
+        .reports-section {
+            margin-top: 30px;
+        }
+        
+        .export-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .profit-loss-section {
+            margin-top: 30px;
+        }
+        
+        .profit-loss-chart {
+            height: 200px;
+            background: linear-gradient(90deg, var(--success) 60%, var(--sale-red) 40%);
+            border-radius: 10px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chart-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Stock Alerts */
+        .stock-alert {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--warning);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .stock-alert h4 {
+            color: var(--warning);
+            margin-bottom: 10px;
+        }
+        
+        /* Date Filters */
+        .date-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .date-filter-btn {
+            background-color: var(--light-turquoise);
+            border: 2px solid var(--turquoise);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .date-filter-btn:hover, .date-filter-btn.active {
+            background-color: var(--turquoise);
+            color: white;
+        }
+        
+        /* Purchase Entry Form */
+        .purchase-form {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .purchase-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        /* Notification Panel */
+        .notifications-panel {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .notification-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .notification-item.unread {
+            background-color: #f0f8ff;
+        }
+        
+        .notification-date {
+            font-size: 12px;
+            color: var(--medium-gray);
+            margin-top: 5px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .category-tabs, .subcategory-filters, .age-filter {
+                gap: 8px;
+            }
+            
+            .category-tab {
+                padding: 10px 15px;
+                min-width: 100px;
+                font-size: 14px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-tabs {
+                justify-content: center;
+            }
+            
+            .products-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .notifications-panel {
+                width: 90%;
+                right: 5%;
+            }
+        }
+        
+        /* Login Modal */
+        .login-modal .modal-content {
+            max-width: 400px;
+        }
+        
+        .login-form {
+            margin-top: 20px;
+        }
+        
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .login-btn {
+            width: 100%;
+            background-color: var(--hot-pink);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        /* Featured Badge */
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            right: 60px;
+            background-color: var(--turquoise);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        /* Notification Animation */
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        /* Chart Container */
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+                <h1>Magizh Toys and Tales</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link" data-section="home">Home</a></li>
+                    <li><a href="#category-browsing" class="nav-link" data-section="category-browsing">Shop</a></li>
+                    <li><a href="#books" class="nav-link" data-section="books">Books</a></li>
+                    <li><a href="#toys" class="nav-link" data-section="toys">Toys</a></li>
+                    <li><a href="#" id="admin-link">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <button class="icon-btn" id="notification-btn">
+                    🔔
+                    <span class="notification-badge">0</span>
+                </button>
+                <button class="icon-btn" id="wishlist-btn">
+                    ♥
+                    <span class="wishlist-count">0</span>
+                </button>
+                <button class="icon-btn" id="cart-btn">
+                    🛒
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Notifications Panel -->
+    <div class="notifications-panel" id="notifications-panel">
+        <div style="padding: 15px; border-bottom: 2px solid var(--turquoise);">
+            <h3 style="color: var(--hot-pink); margin: 0;">Notifications</h3>
+        </div>
+        <div id="notifications-list">
+            <!-- Notifications will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="main-hero">
+        <div class="container">
+            <h2>Spark Imagination, One Story at a Time</h2>
+            <p>Discover the perfect books and educational toys for your child's developmental journey. Curated collections for every age group.</p>
+            <button class="cta-button" id="shop-category-btn">Browse Categories</button>
+        </div>
+    </section>
+
+    <!-- Category Browsing Section -->
+    <section class="category-browsing" id="category-browsing">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            
+            <!-- Main Category Tabs -->
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Products</button>
+                <button class="category-tab" data-category="book">Books</button>
+                <button class="category-tab" data-category="toy">Educational Toys</button>
+            </div>
+            
+            <!-- Subcategory Filters -->
+            <div class="subcategory-filters" id="subcategory-filters">
+                <!-- Subcategories loaded by JavaScript -->
+            </div>
+            
+            <!-- Age Filter -->
+            <div class="age-filter">
+                <span style="margin-right: 10px; color: var(--medium-gray);">Filter by Age:</span>
+                <button class="age-filter-btn active" data-age="all">All Ages</button>
+                <button class="age-filter-btn" data-age="0-1">0-1 Years</button>
+                <button class="age-filter-btn" data-age="1-3">1-3 Years</button>
+                <button class="age-filter-btn" data-age="3-5">3-5 Years</button>
+                <button class="age-filter-btn" data-age="5-8">5-8 Years</button>
+                <button class="age-filter-btn" data-age="8+">8+ Years</button>
+            </div>
+            
+            <div class="product-grid" id="category-products">
+                <!-- Products loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section class="category-section" id="books">
+        <div class="container">
+            <h2 class="section-title">Featured Books</h2>
+            <div class="product-grid" id="books-products">
+                <!-- Books loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Toys Section -->
+    <section class="category-section" id="toys">
+        <div class="container">
+            <h2 class="section-title">Educational Toys</h2>
+            <div class="product-grid" id="toys-products">
+                <!-- Toys loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Magizh Toys and Tales</h3>
+                    <p>Curating the best children's books and educational toys to foster creativity, learning, and joy in every child's life.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-section="home">Home</a></li>
+                        <li><a href="#category-browsing" class="nav-link" data-section="category-browsing">Shop</a></li>
+                        <li><a href="#books" class="nav-link" data-section="books">Books</a></li>
+                        <li><a href="#toys" class="nav-link" data-section="toys">Toys</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <p>📧 info@magizhtoysandtales.com</p>
+                    <p>📞 +91 98765 43210</p>
+                    <p>📍 Chennai, Tamil Nadu, India</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Magizh Toys and Tales. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-cart">×</button>
+            <h2>Your Shopping Cart</h2>
+            <div id="cart-items">
+                <div class="wishlist-empty">Your cart is empty</div>
+            </div>
+            <div class="cart-total" id="cart-total" style="display: none;">
+                Total: ₹<span id="total-amount">0</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn" style="display: none;">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="modal" id="wishlist-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-wishlist">×</button>
+            <h2>Your Wishlist</h2>
+            <div id="wishlist-items">
+                <div class="wishlist-empty">Your wishlist is empty</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel container" id="admin-panel">
+        <div class="admin-header">
+            <h2 class="section-title">Admin Dashboard</h2>
+            <button class="btn btn-secondary" id="back-to-store">Back to Store</button>
+        </div>
+        
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="dashboard">Dashboard</button>
+            <button class="admin-tab" data-tab="category-management">Category Management</button>
+            <button class="admin-tab" data-tab="products">All Products</button>
+            <button class="admin-tab" data-tab="add">Add Product</button>
+            <button class="admin-tab" data-tab="purchase">Purchase Entry</button>
+            <button class="admin-tab" data-tab="reports">Reports & Analytics</button>
+            <button class="admin-tab" data-tab="stock">Stock Management</button>
+            <button class="admin-tab" data-tab="notifications">Order Notifications</button>
+        </div>
+        
+        <!-- Dashboard Tab -->
+        <div class="admin-tab-content" id="dashboard-tab">
+            <div class="stock-alert" id="low-stock-alert" style="display: none;">
+                <h4>⚠ Low Stock Alert</h4>
+                <div id="low-stock-items"></div>
+            </div>
+            
+            <div class="reports-dashboard">
+                <div class="report-card">
+                    <h3>Total Revenue (Today)</h3>
+                    <div class="report-value">₹<span id="today-revenue">0</span></div>
+                    <div class="report-change positive" id="today-change"></div>
+                </div>
+                <div class="report-card">
+                    <h3>Total Orders (This Month)</h3>
+                    <div class="report-value"><span id="month-orders">0</span></div>
+                    <div class="report-change positive" id="month-change"></div>
+                </div>
+                <div class="report-card">
+                    <h3>Inventory Value</h3>
+                    <div class="report-value">₹<span id="inventory-value">0</span></div>
+                    <div class="report-change">Stock Value</div>
+                </div>
+                <div class="report-card">
+                    <h3>Purchase This Month</h3>
+                    <div class="report-value">₹<span id="month-purchase">0</span></div>
+                    <div class="report-change negative">Stock Purchases</div>
+                </div>
+            </div>
+            
+            <div class="profit-loss-section">
+                <h3>Profit & Loss Overview (This Month)</h3>
+                <div class="profit-loss-chart">
+                    <div class="chart-label">Profit: ₹<span id="profit-amount">0</span> | Loss: ₹<span id="loss-amount">0</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Category Management Tab -->
+        <div class="admin-tab-content" id="category-management-tab" style="display: none;">
+            <div class="category-management">
+                <h3>Category Management</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="new-category-name">Category Name</label>
+                        <input type="text" id="new-category-name" class="form-control" placeholder="Enter category name">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="add-category-btn" style="margin-top: 25px;">Add Category</button>
+                    </div>
+                </div>
+                
+                <div class="categories-container" id="categories-container">
+                    <!-- Categories loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Products Table -->
+        <div class="admin-tab-content" id="products-tab" style="display: none;">
+            <table class="products-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Age Group</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-products-table">
+                    <!-- Products loaded by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Add/Edit Product Form -->
+        <div class="admin-tab-content" id="add-tab" style="display: none;">
+            <div class="admin-form">
+                <form id="product-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-title">Product Title *</label>
+                            <input type="text" id="product-title" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-category">Category *</label>
+                            <select id="product-category" class="form-control" required>
+                                <option value="">Select Category</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-subcategory">Subcategory *</label>
+                            <select id="product-subcategory" class="form-control" required>
+                                <option value="">Select Subcategory</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-age">Age Group *</label>
+                            <select id="product-age" class="form-control" required>
+                                <option value="">Select Age Group</option>
+                                <option value="0-1">0-1 Years</option>
+                                <option value="1-3">1-3 Years</option>
+                                <option value="3-5">3-5 Years</option>
+                                <option value="5-8">5-8 Years</option>
+                                <option value="8+">8+ Years</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="original-price">Original Price (₹) *</label>
+                            <input type="number" id="original-price" class="form-control" min="0" step="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="current-price">Current Price (₹) *</label>
+                            <input type="number" id="current-price" class="form-control" min="0" step="1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cost-price">Cost Price (₹) *</label>
+                            <input type="number" id="cost-price" class="form-control" min="0" step="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stock-quantity">Stock Quantity *</label>
+                            <input type="number" id="stock-quantity" class="form-control" min="0" step="1" value="10" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="min-stock">Minimum Stock Level</label>
+                            <input type="number" id="min-stock" class="form-control" min="0" step="1" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier">Supplier</label>
+                            <input type="text" id="supplier" class="form-control" placeholder="Enter supplier name">
+                        </div>
+                    </div>
+                    
+                    <!-- Manual Image Upload -->
+                    <div class="form-group image-upload-container">
+                        <label>Product Images</label>
+                        <div class="image-preview" id="image-preview">
+                            <!-- Preview images will appear here -->
+                        </div>
+                        <input type="file" id="image-upload" accept="image/*" multiple style="display: none;">
+                        <div class="upload-btn" id="upload-trigger">📁 Upload Images</div>
+                        <small style="color: #666; font-size: 12px; display: block; margin-top: 5px;">Click to upload multiple images (Max 5)</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-description">Description</label>
+                        <textarea id="product-description" class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="is-bestseller"> Mark as Bestseller
+                        </label>
+                        <label style="margin-left: 20px;">
+                            <input type="checkbox" id="is-new"> Mark as New Arrival
+                        </label>
+                        <label style="margin-left: 20px;">
+                            <input type="checkbox" id="on-sale"> On Sale
+                        </label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="clear-form">Clear</button>
+                        <button type="submit" class="btn btn-primary" id="save-product">Save Product</button>
+                    </div>
+                    <input type="hidden" id="edit-product-id" value="">
+                    <input type="hidden" id="uploaded-images" value="">
+                </form>
+            </div>
+        </div>
+        
+        <!-- Purchase Entry Tab -->
+        <div class="admin-tab-content" id="purchase-tab" style="display: none;">
+            <h3>Purchase Entry & Stock Management</h3>
+            <div class="purchase-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="purchase-supplier">Supplier Name *</label>
+                        <input type="text" id="purchase-supplier" class="form-control" placeholder="Enter supplier name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="purchase-date">Purchase Date *</label>
+                        <input type="date" id="purchase-date" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="purchase-product">Select Product *</label>
+                        <select id="purchase-product" class="form-control" required>
+                            <option value="">Select Product</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="purchase-quantity">Quantity *</label>
+                        <input type="number" id="purchase-quantity" class="form-control" min="1" value="10" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="purchase-price">Unit Price (₹) *</label>
+                        <input type="number" id="purchase-price" class="form-control" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="purchase-total">Total Amount</label>
+                        <input type="text" id="purchase-total" class="form-control" readonly>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" id="add-purchase-item">Add to Purchase List</button>
+                
+                <div id="purchase-items-list" style="margin-top: 20px;">
+                    <h4>Purchase Items</h4>
+                    <table class="products-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="purchase-items-table">
+                            <!-- Purchase items will appear here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="margin-top: 20px; text-align: right;">
+                    <h4>Grand Total: ₹<span id="purchase-grand-total">0</span></h4>
+                    <button class="btn btn-success" id="save-purchase">Save Purchase Entry</button>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h4>Recent Purchase History</h4>
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Purchase ID</th>
+                            <th>Date</th>
+                            <th>Supplier</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="purchase-history-table">
+                        <!-- Purchase history loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Reports & Analytics Tab -->
+        <div class="admin-tab-content" id="reports-tab" style="display: none;">
+            <h3>Reports & Analytics</h3>
+            
+            <div class="date-filters">
+                <button class="date-filter-btn active" data-period="today">Today</button>
+                <button class="date-filter-btn" data-period="yesterday">Yesterday</button>
+                <button class="date-filter-btn" data-period="week">This Week</button>
+                <button class="date-filter-btn" data-period="month">This Month</button>
+                <button class="date-filter-btn" data-period="quarter">This Quarter</button>
+                <button class="date-filter-btn" data-period="year">This Year</button>
+                <button class="date-filter-btn" data-period="custom">Custom Range</button>
+            </div>
+            
+            <div class="custom-date-range" id="custom-date-range" style="display: none; margin-bottom: 20px;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="start-date">Start Date</label>
+                        <input type="date" id="start-date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">End Date</label>
+                        <input type="date" id="end-date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="apply-custom-date" style="margin-top: 25px;">Apply</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reports-section">
+                <div class="report-card">
+                    <h4>Sales Report</h4>
+                    <p>Total Sales: ₹<span id="total-sales">0</span></p>
+                    <p>Products Sold: <span id="total-products-sold">0</span></p>
+                    <p>Average Order Value: ₹<span id="avg-order-value">0</span></p>
+                </div>
+                
+                <div class="report-card">
+                    <h4>Purchase Report</h4>
+                    <p>Total Purchases: ₹<span id="total-purchases">0</span></p>
+                    <p>Items Purchased: <span id="total-items-purchased">0</span></p>
+                    <p>Average Purchase Value: ₹<span id="avg-purchase-value">0</span></p>
+                </div>
+                
+                <div class="report-card">
+                    <h4>Stock Movement</h4>
+                    <p>Stock Added: <span id="stock-added">0</span></p>
+                    <p>Stock Sold: <span id="stock-sold">0</span></p>
+                    <p>Net Stock Change: <span id="net-stock-change">0</span></p>
+                </div>
+                
+                <div class="export-buttons">
+                    <button class="btn btn-primary" id="export-sales-csv">Export Sales CSV</button>
+                    <button class="btn btn-primary" id="export-purchase-csv">Export Purchase CSV</button>
+                    <button class="btn btn-primary" id="export-stock-csv">Export Stock CSV</button>
+                    <button class="btn btn-primary" id="export-profit-loss">Export P&L Report</button>
+                    <button class="btn btn-primary" id="export-monthly">Monthly Report</button>
+                    <button class="btn btn-primary" id="export-yearly">Yearly Report</button>
+                </div>
+                
+                <div class="profit-loss-section" style="margin-top: 30px;">
+                    <h4>Detailed Profit & Loss Statement</h4>
+                    <div id="detailed-profit-loss">
+                        <!-- P&L details loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stock Management Tab -->
+        <div class="admin-tab-content" id="stock-tab" style="display: none;">
+            <h3>Stock Management</h3>
+            <div class="stock-alert" id="stock-management-alert">
+                <h4>Automatic Stock Management</h4>
+                <p>Stock is automatically updated with sales and purchase entries.</p>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="restock-product">Restock Product</label>
+                    <select id="restock-product" class="form-control">
+                        <option value="">Select Product to Restock</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="restock-quantity">Quantity to Add</label>
+                    <input type="number" id="restock-quantity" class="form-control" min="1" value="10">
+                </div>
+            </div>
+            <button class="btn btn-primary" id="restock-btn">Restock Product</button>
+            
+            <div style="margin-top: 30px;">
+                <h4>Current Inventory</h4>
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Current Stock</th>
+                            <th>Min Stock</th>
+                            <th>Status</th>
+                            <th>Last Restocked</th>
+                            <th>Stock Movement (30 days)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventory-table">
+                        <!-- Inventory loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h4>Stock Movement History</h4>
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Product</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                            <th>Reference</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stock-movement-table">
+                        <!-- Stock movement loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Order Notifications Tab -->
+        <div class="admin-tab-content" id="notifications-tab" style="display: none;">
+            <h3>Order Notifications & Alerts</h3>
+            
+            <div class="stock-alert" style="margin-bottom: 20px;">
+                <h4>📢 Recent Activity</h4>
+                <p>All order and stock notifications appear here with timestamps.</p>
+            </div>
+            
+            <div id="admin-notifications-list">
+                <!-- Notifications will be loaded here -->
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button class="btn btn-secondary" id="mark-all-read">Mark All as Read</button>
+                <button class="btn btn-danger" id="clear-notifications">Clear All Notifications</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal for Admin -->
+    <div class="modal login-modal" id="login-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-login">×</button>
+            <h2>Admin Login</h2>
+            <p>Please enter your credentials to access the admin panel.</p>
+            <form class="login-form" id="login-form">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" class="form-control" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <p style="margin-top: 20px; font-size: 14px; color: #666;">
+                <strong>Demo Credentials:</strong><br>
+                Username: admin<br>
+                Password: magizh123
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced product database with all required fields
+        const products = [
+            {
+                id: 1,
+                title: "Slogak Kadhambam",
+                category: "book",
+                subcategory: "board-book",
+                ageGroup: "0-1",
+                type: "Board Book",
+                originalPrice: 199,
+                currentPrice: 149,
+                costPrice: 60,
+                onSale: true,
+                isBestseller: true,
+                isNew: false,
+                description: "A colorful board book for infants with basic Tamil words.",
+                stock: 15,
+                minStock: 5,
+                lastRestocked: "2023-10-15",
+                supplier: "Tamil Book Distributors",
+                totalSold: 45,
+                stockHistory: [
+                    { date: "2023-10-15", type: "purchase", quantity: 50, reference: "PO-1001" },
+                    { date: "2023-11-01", type: "sale", quantity: -20, reference: "Order-2001" },
+                    { date: "2023-11-15", type: "sale", quantity: -15, reference: "Order-2005" }
+                ],
+                images: ["book1-1.jpg", "book1-2.jpg", "book1-3.jpg"]
+            },
+            {
+                id: 2,
+                title: "Vaarthai Panuval",
+                category: "book",
+                subcategory: "activity-book",
+                ageGroup: "3-5",
+                type: "Activity Book",
+                originalPrice: 699,
+                currentPrice: 599,
+                costPrice: 250,
+                onSale: true,
+                isBestseller: true,
+                isNew: false,
+                description: "Interactive Tamil vocabulary building activity book.",
+                stock: 8,
+                minStock: 3,
+                lastRestocked: "2023-11-05",
+                supplier: "Tamil Book Distributors",
+                totalSold: 32,
+                stockHistory: [
+                    { date: "2023-11-05", type: "purchase", quantity: 40, reference: "PO-1002" },
+                    { date: "2023-11-10", type: "sale", quantity: -20, reference: "Order-2002" },
+                    { date: "2023-11-20", type: "sale", quantity: -12, reference: "Order-2006" }
+                ],
+                images: ["book2-1.jpg", "book2-2.jpg"]
+            },
+            // ... (other products with stockHistory)
+        ];
+
+        // Categories and subcategories data
+        const categories = [
+            {
+                id: "book",
+                name: "Books",
+                subcategories: [
+                    { id: "board-book", name: "Board Books" },
+                    { id: "picture-book", name: "Picture Books" },
+                    { id: "story-book", name: "Story Books" },
+                    { id: "activity-book", name: "Activity Books" },
+                    { id: "interactive-book", name: "Interactive Books" }
+                ]
+            },
+            {
+                id: "toy",
+                name: "Educational Toys",
+                subcategories: [
+                    { id: "puzzle", name: "Puzzles" },
+                    { id: "building-blocks", name: "Building Blocks" },
+                    { id: "learning-toy", name: "Learning Toys" },
+                    { id: "art-craft", name: "Art & Craft" },
+                    { id: "stem-toy", name: "STEM Toys" }
+                ]
+            }
+        ];
+
+        // Orders database with dates
+        const orders = [
+            {
+                id: 2001,
+                date: "2023-11-25",
+                time: "14:30",
+                customer: "Priya Sharma",
+                email: "priya@example.com",
+                items: [
+                    { productId: 1, quantity: 2, price: 149 },
+                    { productId: 5, quantity: 1, price: 185 },
+                    { productId: 7, quantity: 1, price: 599 }
+                ],
+                total: 933,
+                status: "completed",
+                paymentMethod: "Credit Card"
+            },
+            {
+                id: 2002,
+                date: "2023-11-24",
+                time: "10:15",
+                customer: "Rajesh Kumar",
+                email: "rajesh@example.com",
+                items: [
+                    { productId: 2, quantity: 1, price: 599 },
+                    { productId: 8, quantity: 1, price: 799 }
+                ],
+                total: 1398,
+                status: "completed",
+                paymentMethod: "PayPal"
+            },
+            {
+                id: 2003,
+                date: "2023-11-23",
+                time: "16:45",
+                customer: "Anjali Patel",
+                email: "anjali@example.com",
+                items: [
+                    { productId: 3, quantity: 1, price: 166 },
+                    { productId: 4, quantity: 2, price: 75 }
+                ],
+                total: 316,
+                status: "processing",
+                paymentMethod: "Cash on Delivery"
+            },
+            {
+                id: 2004,
+                date: "2023-11-20",
+                time: "11:20",
+                customer: "Suresh Menon",
+                email: "suresh@example.com",
+                items: [
+                    { productId: 7, quantity: 2, price: 599 }
+                ],
+                total: 1198,
+                status: "completed",
+                paymentMethod: "Credit Card"
+            }
+        ];
+
+        // Purchase entries database
+        let purchases = [
+            {
+                id: 1001,
+                date: "2023-11-25",
+                supplier: "Tamil Book Distributors",
+                items: [
+                    { productId: 1, quantity: 20, unitPrice: 60, total: 1200 },
+                    { productId: 2, quantity: 15, unitPrice: 250, total: 3750 }
+                ],
+                total: 4950,
+                status: "completed"
+            },
+            {
+                id: 1002,
+                date: "2023-11-20",
+                supplier: "Toy Makers Inc.",
+                items: [
+                    { productId: 7, quantity: 10, unitPrice: 300, total: 3000 },
+                    { productId: 8, quantity: 15, unitPrice: 400, total: 6000 }
+                ],
+                total: 9000,
+                status: "completed"
+            },
+            {
+                id: 1003,
+                date: "2023-11-15",
+                supplier: "Global Publishers",
+                items: [
+                    { productId: 5, quantity: 25, unitPrice: 85, total: 2125 }
+                ],
+                total: 2125,
+                status: "completed"
+            }
+        ];
+
+        // Notifications database
+        let notifications = [
+            {
+                id: 1,
+                type: "order",
+                title: "New Order Received",
+                message: "Order #2001 placed by Priya Sharma",
+                date: "2023-11-25",
+                time: "14:30",
+                read: true
+            },
+            {
+                id: 2,
+                type: "stock",
+                title: "Low Stock Alert",
+                message: "Vaarthai Panuval is running low (8 units left)",
+                date: "2023-11-25",
+                time: "10:15",
+                read: true
+            },
+            {
+                id: 3,
+                type: "purchase",
+                title: "Purchase Order Completed",
+                message: "Purchase #1001 from Tamil Book Distributors",
+                date: "2023-11-25",
+                time: "09:00",
+                read: true
+            },
+            {
+                id: 4,
+                type: "order",
+                title: "New Order Received",
+                message: "Order #2002 placed by Rajesh Kumar",
+                date: "2023-11-24",
+                time: "10:15",
+                read: false
+            },
+            {
+                id: 5,
+                type: "stock",
+                title: "Out of Stock",
+                message: "Where are you Alphabet is out of stock",
+                date: "2023-11-24",
+                time: "09:30",
+                read: false
+            }
+        ];
+
+        // Cart and Wishlist data
+        let cart = [];
+        let wishlist = [];
+        let editingProductId = null;
+        let uploadedImages = [];
+        let currentPurchaseItems = [];
+        let reportPeriod = "today";
+
+        // DOM Elements
+        const mainHeader = document.getElementById('main-header');
+        const mainHero = document.getElementById('main-hero');
+        const mainFooter = document.getElementById('main-footer');
+        const adminPanel = document.getElementById('admin-panel');
+        const cartBtn = document.getElementById('cart-btn');
+        const wishlistBtn = document.getElementById('wishlist-btn');
+        const notificationBtn = document.getElementById('notification-btn');
+        const cartModal = document.getElementById('cart-modal');
+        const wishlistModal = document.getElementById('wishlist-modal');
+        const loginModal = document.getElementById('login-modal');
+        const adminLink = document.getElementById('admin-link');
+        const backToStoreBtn = document.getElementById('back-to-store');
+        const notificationsPanel = document.getElementById('notifications-panel');
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default dates
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('purchase-date').value = today;
+            document.getElementById('start-date').value = today;
+            document.getElementById('end-date').value = today;
+            
+            // Load store products
+            loadCategoryProducts('all', 'all');
+            loadBooksProducts();
+            loadToysProducts();
+            
+            // Load admin data
+            loadAdminProductsTable();
+            updateDashboard();
+            loadCategories();
+            populateCategoryDropdowns();
+            loadPurchaseProductDropdown();
+            loadPurchaseHistory();
+            loadStockMovementTable();
+            loadNotifications();
+            updateNotificationBadge();
+            loadInventoryTable();
+            loadReportsData();
+            checkLowStock();
+            
+            // Initialize cart and wishlist counts
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            console.log('Magizh Toys and Tales - Enhanced Stock Management System Ready!');
+        });
+
+        // Setup all event listeners
+        function setupEventListeners() {
+            // Store navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    if (section === 'home') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        const target = document.getElementById(section);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+            
+            // Category filtering
+            document.querySelectorAll('.category-tab').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.category-tab').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const category = this.getAttribute('data-category');
+                    loadSubcategoryFilters(category);
+                    loadCategoryProducts(category, 'all');
+                });
+            });
+            
+            // Age filtering
+            document.querySelectorAll('.age-filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.age-filter-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const ageGroup = this.getAttribute('data-age');
+                    const activeCategory = document.querySelector('.category-tab.active').getAttribute('data-category');
+                    loadCategoryProducts(activeCategory, ageGroup);
+                });
+            });
+            
+            // Cart and wishlist
+            cartBtn.addEventListener('click', openCart);
+            wishlistBtn.addEventListener('click', openWishlist);
+            notificationBtn.addEventListener('click', toggleNotifications);
+            document.getElementById('close-cart').addEventListener('click', closeCartModal);
+            document.getElementById('close-wishlist').addEventListener('click', closeWishlistModal);
+            document.getElementById('checkout-btn').addEventListener('click', checkout);
+            
+            // Admin login
+            adminLink.addEventListener('click', showLoginModal);
+            document.getElementById('close-login').addEventListener('click', closeLoginModal);
+            document.getElementById('login-form').addEventListener('submit', adminLogin);
+            
+            // Back to store
+            backToStoreBtn.addEventListener('click', showStore);
+            
+            // Admin tabs
+            document.querySelectorAll('.admin-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    switchAdminTab(tabId);
+                });
+            });
+            
+            // Product form
+            document.getElementById('product-form').addEventListener('submit', saveProduct);
+            document.getElementById('clear-form').addEventListener('click', clearProductForm);
+            
+            // Category management
+            document.getElementById('add-category-btn').addEventListener('click', addCategory);
+            
+            // Image upload
+            document.getElementById('upload-trigger').addEventListener('click', () => {
+                document.getElementById('image-upload').click();
+            });
+            document.getElementById('image-upload').addEventListener('change', handleImageUpload);
+            
+            // Purchase entry
+            document.getElementById('purchase-quantity').addEventListener('input', updatePurchaseTotal);
+            document.getElementById('purchase-price').addEventListener('input', updatePurchaseTotal);
+            document.getElementById('add-purchase-item').addEventListener('click', addPurchaseItem);
+            document.getElementById('save-purchase').addEventListener('click', savePurchase);
+            
+            // Reports and exports
+            document.getElementById('export-sales-csv').addEventListener('click', exportSalesCSV);
+            document.getElementById('export-purchase-csv').addEventListener('click', exportPurchaseCSV);
+            document.getElementById('export-stock-csv').addEventListener('click', exportStockCSV);
+            document.getElementById('export-profit-loss').addEventListener('click', exportProfitLoss);
+            document.getElementById('export-monthly').addEventListener('click', exportMonthlyReport);
+            document.getElementById('export-yearly').addEventListener('click', exportYearlyReport);
+            
+            // Date filters for reports
+            document.querySelectorAll('.date-filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.date-filter-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    reportPeriod = this.getAttribute('data-period');
+                    
+                    if (reportPeriod === 'custom') {
+                        document.getElementById('custom-date-range').style.display = 'block';
+                    } else {
+                        document.getElementById('custom-date-range').style.display = 'none';
+                        loadReportsData();
+                    }
+                });
+            });
+            
+            document.getElementById('apply-custom-date').addEventListener('click', loadReportsData);
+            
+            // Stock management
+            document.getElementById('restock-btn').addEventListener('click', restockProduct);
+            
+            // Notifications
+            document.getElementById('mark-all-read').addEventListener('click', markAllNotificationsRead);
+            document.getElementById('clear-notifications').addEventListener('click', clearAllNotifications);
+            
+            // Shop by category button
+            document.getElementById('shop-category-btn').addEventListener('click', function() {
+                document.getElementById('category-browsing').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === cartModal) closeCartModal();
+                if (event.target === wishlistModal) closeWishlistModal();
+                if (event.target === loginModal) closeLoginModal();
+                if (!notificationsPanel.contains(event.target) && event.target !== notificationBtn) {
+                    notificationsPanel.style.display = 'none';
+                }
+            });
+        }
+
+        // Store functions
+        function loadCategoryProducts(category, ageGroup) {
+            const container = document.getElementById('category-products');
+            container.innerHTML = '';
+            let filteredProducts = products;
+            
+            if (category !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.category === category);
+            }
+            
+            if (ageGroup !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.ageGroup === ageGroup);
+            }
+            
+            filteredProducts.forEach(product => {
+                container.appendChild(createProductCard(product));
+            });
+        }
+
+        function loadSubcategoryFilters(category) {
+            const container = document.getElementById('subcategory-filters');
+            container.innerHTML = '';
+            
+            if (category === 'all') {
+                container.innerHTML = '<button class="subcategory-btn active" data-subcategory="all">All</button>';
+                container.querySelector('.subcategory-btn').addEventListener('click', function() {
+                    filterBySubcategory('all');
+                });
+                return;
+            }
+            
+            const categoryData = categories.find(c => c.id === category);
+            if (!categoryData) return;
+            
+            // Add "All" button
+            const allBtn = document.createElement('button');
+            allBtn.className = 'subcategory-btn active';
+            allBtn.textContent = 'All';
+            allBtn.setAttribute('data-subcategory', 'all');
+            allBtn.addEventListener('click', function() {
+                filterBySubcategory('all');
+            });
+            container.appendChild(allBtn);
+            
+            // Add subcategory buttons
+            categoryData.subcategories.forEach(subcategory => {
+                const btn = document.createElement('button');
+                btn.className = 'subcategory-btn';
+                btn.textContent = subcategory.name;
+                btn.setAttribute('data-subcategory', subcategory.id);
+                btn.addEventListener('click', function() {
+                    filterBySubcategory(subcategory.id);
+                });
+                container.appendChild(btn);
+            });
+        }
+
+        function filterBySubcategory(subcategory) {
+            // Update active button
+            document.querySelectorAll('.subcategory-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const category = document.querySelector('.category-tab.active').getAttribute('data-category');
+            const ageGroup = document.querySelector('.age-filter-btn.active').getAttribute('data-age');
+            
+            const container = document.getElementById('category-products');
+            container.innerHTML = '';
+            
+            let filteredProducts = products;
+            
+            if (category !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.category === category);
+            }
+            
+            if (ageGroup !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.ageGroup === ageGroup);
+            }
+            
+            if (subcategory !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.subcategory === subcategory);
+            }
+            
+            filteredProducts.forEach(product => {
+                container.appendChild(createProductCard(product));
+            });
+        }
+
+        function loadBooksProducts() {
+            const container = document.getElementById('books-products');
+            container.innerHTML = '';
+            const bookProducts = products.filter(product => product.category === 'book').slice(0, 4);
+            
+            bookProducts.forEach(product => {
+                container.appendChild(createProductCard(product));
+            });
+        }
+
+        function loadToysProducts() {
+            const container = document.getElementById('toys-products');
+            container.innerHTML = '';
+            const toyProducts = products.filter(product => product.category === 'toy').slice(0, 4);
+            
+            toyProducts.forEach(product => {
+                container.appendChild(createProductCard(product));
+            });
+        }
+
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.dataset.id = product.id;
+            
+            const saleBadge = product.onSale ? `<div class="sale-badge">SALE</div>` : '';
+            const featuredBadge = product.isBestseller ? `<div class="featured-badge">Bestseller</div>` : 
+                               product.isNew ? `<div class="featured-badge">New</div>` : '';
+            
+            const isInWishlist = wishlist.includes(product.id);
+            const wishlistClass = isInWishlist ? 'active' : '';
+            
+            // Determine stock status with automatic low stock detection
+            let stockStatus, stockClass;
+            if (product.stock <= 0) {
+                stockStatus = 'Out of Stock';
+                stockClass = 'stock-out';
+            } else if (product.stock <= product.minStock) {
+                stockStatus = 'Low Stock';
+                stockClass = 'stock-low';
+            } else {
+                stockStatus = 'In Stock';
+                stockClass = 'stock-in';
+            }
+            
+            const stockHTML = `<div class="stock-status ${stockClass}">${stockStatus}</div>`;
+            
+            const cartButton = product.stock > 0 ? 
+                `<button class="add-to-cart" data-id="${product.id}">Add to Cart</button>` :
+                `<button class="add-to-cart" data-id="${product.id}" disabled>Out of Stock</button>`;
+            
+            // Get subcategory name
+            const categoryData = categories.find(c => c.id === product.category);
+            const subcategoryData = categoryData ? 
+                categoryData.subcategories.find(s => s.id === product.subcategory) : 
+                { name: product.type };
+            
+            // Get age group display
+            const ageDisplay = product.ageGroup === '8+' ? '8+ Years' : `${product.ageGroup} Years`;
+            
+            // Create carousel for images
+            const images = product.images || [product.image || ''];
+            const carouselSlides = images.map((img, index) => {
+                let imageUrl = '';
+                if (img.startsWith('http')) {
+                    imageUrl = img;
+                } else {
+                    imageUrl = `images/${img}`;
+                }
+                return `
+                    <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
+                        <img src="${imageUrl}" alt="${product.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\'font-size: 60px; color: var(--turquoise);\'>${product.category === 'book' ? '📚' : '🧸'}</div>'">
+                    </div>
+                `;
+            }).join('');
+            
+            const carouselDots = images.map((img, index) => 
+                `<div class="carousel-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></div>`
+            ).join('');
+            
+            const carouselHTML = images.length > 1 ? `
+                <div class="product-image-carousel" data-product-id="${product.id}">
+                    <div class="carousel-slides">
+                        ${carouselSlides}
+                    </div>
+                    <button class="carousel-btn carousel-prev" data-product-id="${product.id}">‹</button>
+                    <button class="carousel-btn carousel-next" data-product-id="${product.id}">›</button>
+                    <div class="carousel-nav">
+                        ${carouselDots}
+                    </div>
+                </div>
+            ` : `
+                <div class="product-image-carousel">
+                    <div class="carousel-slides">
+                        ${carouselSlides}
+                    </div>
+                </div>
+            `;
+            
+            card.innerHTML = `
+                ${saleBadge}
+                ${featuredBadge}
+                <button class="wishlist-btn ${wishlistClass}" data-id="${product.id}">
+                    ${isInWishlist ? '♥' : '♡'}
+                </button>
+                ${carouselHTML}
+                <div class="product-info">
+                    <h3 class="product-title">${product.title}</h3>
+                    <span class="product-category">${categoryData?.name || product.category}</span>
+                    <span class="product-subcategory">${subcategoryData?.name || product.type}</span>
+                    <span class="product-age">${ageDisplay}</span>
+                    ${stockHTML}
+                    <div class="price">
+                        <span class="current-price">₹${product.currentPrice}</span>
+                        <span class="original-price">₹${product.originalPrice}</span>
+                    </div>
+                    ${cartButton}
+                </div>
+            `;
+            
+            // Add event listeners
+            const wishlistBtn = card.querySelector('.wishlist-btn');
+            const addToCartBtn = card.querySelector('.add-to-cart');
+            
+            wishlistBtn.addEventListener('click', function() {
+                toggleWishlist(product.id);
+                this.classList.toggle('active');
+                this.innerHTML = this.classList.contains('active') ? '♥' : '♡';
+                updateWishlistCount();
+            });
+            
+            if (!addToCartBtn.disabled) {
+                addToCartBtn.addEventListener('click', function() {
+                    addToCart(product.id);
+                    updateCartCount();
+                    showNotification(`${product.title} added to cart!`);
+                });
+            }
+            
+            // Add carousel event listeners if multiple images
+            if (images.length > 1) {
+                const carousel = card.querySelector('.product-image-carousel');
+                const prevBtn = card.querySelector('.carousel-prev');
+                const nextBtn = card.querySelector('.carousel-next');
+                const dots = card.querySelectorAll('.carousel-dot');
+                const slides = card.querySelector('.carousel-slides');
+                
+                let currentIndex = 0;
+                
+                const updateCarousel = () => {
+                    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                };
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex - 1 + images.length) % images.length;
+                        updateCarousel();
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex + 1) % images.length;
+                        updateCarousel();
+                    });
+                }
+                
+                dots.forEach(dot => {
+                    dot.addEventListener('click', () => {
+                        currentIndex = parseInt(dot.getAttribute('data-index'));
+                        updateCarousel();
+                    });
+                });
+            }
+            
+            return card;
+        }
+
+        // Cart functions with automatic stock update
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            if (product.stock <= 0) {
+                showNotification(`${product.title} is out of stock!`);
+                return;
+            }
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                if (existingItem.quantity >= product.stock) {
+                    showNotification(`Only ${product.stock} units available!`);
+                    return;
+                }
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    title: product.title,
+                    price: product.currentPrice,
+                    quantity: 1,
+                    image: product.images ? product.images[0] : product.image,
+                    category: product.category
+                });
+            }
+            
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const container = document.getElementById('cart-items');
+            container.innerHTML = '';
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<div class="wishlist-empty">Your cart is empty</div>';
+                document.getElementById('cart-total').style.display = 'none';
+                document.getElementById('checkout-btn').style.display = 'none';
+                return;
+            }
+            
+            let total = 0;
+            
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                
+                let imageUrl = '';
+                if (item.image) {
+                    if (item.image.startsWith('http')) {
+                        imageUrl = item.image;
+                    } else {
+                        imageUrl = `images/${item.image}`;
+                    }
+                }
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-image">
+                        ${imageUrl ? `<img src="${imageUrl}" alt="${item.title}">` : 
+                          `<div style="font-size: 24px; color: var(--turquoise);">${item.category === 'book' ? '📚' : '🧸'}</div>`}
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.title}</div>
+                        <div class="cart-item-price">₹${item.price} × ${item.quantity}</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <button class="quantity-btn" data-id="${item.id}" data-action="decrease">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                        <button class="remove-btn" data-id="${item.id}">×</button>
+                    </div>
+                `;
+                
+                container.appendChild(cartItem);
+            });
+            
+            // Add event listeners to cart item buttons
+            container.querySelectorAll('.quantity-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const action = this.getAttribute('data-action');
+                    updateCartQuantity(productId, action);
+                });
+            });
+            
+            container.querySelectorAll('.remove-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    removeFromCart(productId);
+                });
+            });
+            
+            document.getElementById('total-amount').textContent = total;
+            document.getElementById('cart-total').style.display = 'block';
+            document.getElementById('checkout-btn').style.display = 'block';
+        }
+
+        function updateCartQuantity(productId, action) {
+            const item = cart.find(item => item.id === productId);
+            if (!item) return;
+            
+            const product = products.find(p => p.id === productId);
+            
+            if (action === 'increase') {
+                if (item.quantity >= product.stock) {
+                    showNotification(`Only ${product.stock} units available!`);
+                    return;
+                }
+                item.quantity += 1;
+            } else if (action === 'decrease') {
+                item.quantity -= 1;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                    return;
+                }
+            }
+            
+            updateCartCount();
+            updateCartDisplay();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCount();
+            updateCartDisplay();
+            showNotification('Item removed from cart');
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+
+        // Wishlist functions
+        function toggleWishlist(productId) {
+            const index = wishlist.indexOf(productId);
+            
+            if (index === -1) {
+                wishlist.push(productId);
+                showNotification('Added to wishlist');
+            } else {
+                wishlist.splice(index, 1);
+                showNotification('Removed from wishlist');
+            }
+            
+            updateWishlistDisplay();
+        }
+
+        function updateWishlistDisplay() {
+            const container = document.getElementById('wishlist-items');
+            container.innerHTML = '';
+            
+            if (wishlist.length === 0) {
+                container.innerHTML = '<div class="wishlist-empty">Your wishlist is empty</div>';
+                return;
+            }
+            
+            wishlist.forEach(productId => {
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+                
+                let imageUrl = '';
+                const image = product.images ? product.images[0] : product.image;
+                if (image) {
+                    if (image.startsWith('http')) {
+                        imageUrl = image;
+                    } else {
+                        imageUrl = `images/${image}`;
+                    }
+                }
+                
+                const wishlistItem = document.createElement('div');
+                wishlistItem.className = 'wishlist-item';
+                wishlistItem.innerHTML = `
+                    <div class="wishlist-item-image">
+                        ${imageUrl ? `<img src="${imageUrl}" alt="${product.title}">` : 
+                          `<div style="font-size: 24px; color: var(--turquoise);">${product.category === 'book' ? '📚' : '🧸'}</div>`}
+                    </div>
+                    <div class="wishlist-item-details">
+                        <div class="wishlist-item-title">${product.title}</div>
+                        <div class="wishlist-item-price">₹${product.currentPrice}</div>
+                    </div>
+                    <div class="wishlist-item-actions">
+                        <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+                        <button class="remove-btn" data-id="${product.id}">×</button>
+                    </div>
+                `;
+                
+                container.appendChild(wishlistItem);
+            });
+            
+            // Add event listeners
+            container.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    addToCart(productId);
+                    updateCartCount();
+                    showNotification('Added to cart from wishlist');
+                });
+            });
+            
+            container.querySelectorAll('.remove-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    toggleWishlist(productId);
+                    // Update heart icon in product cards
+                    const productCard = document.querySelector(`.product-card[data-id="${productId}"] .wishlist-btn`);
+                    if (productCard) {
+                        productCard.classList.remove('active');
+                        productCard.innerHTML = '♡';
+                    }
+                });
+            });
+        }
+
+        function updateWishlistCount() {
+            document.querySelector('.wishlist-count').textContent = wishlist.length;
+        }
+
+        // Modal functions
+        function openCart() {
+            cartModal.style.display = 'flex';
+            updateCartDisplay();
+        }
+
+        function closeCartModal() {
+            cartModal.style.display = 'none';
+        }
+
+        function openWishlist() {
+            wishlistModal.style.display = 'flex';
+            updateWishlistDisplay();
+        }
+
+        function closeWishlistModal() {
+            wishlistModal.style.display = 'none';
+        }
+
+        function toggleNotifications() {
+            if (notificationsPanel.style.display === 'block') {
+                notificationsPanel.style.display = 'none';
+            } else {
+                notificationsPanel.style.display = 'block';
+                loadNotifications();
+                updateNotificationBadge();
+            }
+        }
+
+        function showLoginModal(e) {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+        }
+
+        function closeLoginModal() {
+            loginModal.style.display = 'none';
+        }
+
+        // Checkout function with automatic stock update and notification
+        function checkout() {
+            if (cart.length === 0) return;
+            
+            const orderId = 2000 + orders.length + 1;
+            const customerName = prompt("Please enter your name for the order:");
+            if (!customerName) return;
+            
+            const customerEmail = prompt("Please enter your email for order confirmation:");
+            if (!customerEmail) return;
+            
+            const now = new Date();
+            const orderDate = now.toISOString().split('T')[0];
+            const orderTime = now.toTimeString().split(' ')[0];
+            
+            const total = parseInt(document.getElementById('total-amount').textContent);
+            const orderItems = cart.map(item => ({
+                productId: item.id,
+                quantity: item.quantity,
+                price: item.price
+            }));
+            
+            // Deduct stock (Automatic Stock Management)
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                if (product) {
+                    // Deduct stock
+                    product.stock -= item.quantity;
+                    product.totalSold += item.quantity;
+                    
+                    // Add to stock history
+                    if (!product.stockHistory) product.stockHistory = [];
+                    product.stockHistory.push({
+                        date: orderDate,
+                        type: "sale",
+                        quantity: -item.quantity,
+                        reference: `Order-${orderId}`
+                    });
+                    
+                    // Check if stock is low after deduction
+                    if (product.stock <= product.minStock) {
+                        // Add notification
+                        addNotification(
+                            'stock',
+                            'Low Stock Alert',
+                            `${product.title} is running low (${product.stock} units left)`,
+                            orderDate,
+                            orderTime
+                        );
+                    }
+                }
+            });
+            
+            // Add to orders
+            const newOrder = {
+                id: orderId,
+                date: orderDate,
+                time: orderTime,
+                customer: customerName,
+                email: customerEmail,
+                items: orderItems,
+                total: total,
+                status: "processing",
+                paymentMethod: "Credit Card"
+            };
+            orders.push(newOrder);
+            
+            // Add order notification
+            addNotification(
+                'order',
+                'New Order Received',
+                `Order #${orderId} placed by ${customerName} for ₹${total}`,
+                orderDate,
+                orderTime
+            );
+            
+            alert(`Order #${orderId} placed successfully!\nTotal: ₹${total}\nA confirmation email has been sent to ${customerEmail}`);
+            
+            // Clear cart and update displays
+            cart = [];
+            updateCartCount();
+            updateCartDisplay();
+            closeCartModal();
+            
+            // Update all displays
+            loadCategoryProducts('all', 'all');
+            loadBooksProducts();
+            loadToysProducts();
+            loadAdminProductsTable();
+            updateDashboard();
+            loadInventoryTable();
+            loadStockMovementTable();
+            checkLowStock();
+            updateNotificationBadge();
+            
+            showNotification(`Order #${orderId} placed successfully!`);
+        }
+
+        // Admin functions
+        function adminLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
+            
+            if (username === 'admin' && password === 'magizh123') {
+                showAdminPanel();
+                closeLoginModal();
+            } else {
+                alert('Invalid credentials. Use username: admin, password: magizh123 for demo.');
+            }
+        }
+
+        function showAdminPanel() {
+            // Hide store elements
+            mainHeader.style.display = 'none';
+            mainHero.style.display = 'none';
+            mainFooter.style.display = 'none';
+            document.querySelectorAll('.category-section, .category-browsing').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show admin panel
+            adminPanel.style.display = 'block';
+            
+            // Load admin data
+            loadAdminProductsTable();
+            loadCategories();
+            updateDashboard();
+            populateCategoryDropdowns();
+            loadPurchaseProductDropdown();
+            loadPurchaseHistory();
+            loadStockMovementTable();
+            loadNotifications();
+            updateNotificationBadge();
+            loadInventoryTable();
+            loadReportsData();
+            checkLowStock();
+            
+            // Switch to dashboard tab
+            switchAdminTab('dashboard');
+        }
+
+        function showStore() {
+            // Show store elements
+            mainHeader.style.display = 'block';
+            mainHero.style.display = 'block';
+            mainFooter.style.display = 'block';
+            document.querySelectorAll('.category-section, .category-browsing').forEach(section => {
+                section.style.display = 'block';
+            });
+            
+            // Hide admin panel
+            adminPanel.style.display = 'none';
+            
+            // Update cart and wishlist
+            updateCartCount();
+            updateWishlistCount();
+        }
+
+        function switchAdminTab(tabId) {
+            // Update active tab
+            document.querySelectorAll('.admin-tab').forEach(tab => {
+                if (tab.getAttribute('data-tab') === tabId) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            // Show active tab content
+            document.querySelectorAll('.admin-tab-content').forEach(content => {
+                if (content.id === `${tabId}-tab`) {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+            
+            // Load data for specific tabs
+            if (tabId === 'products') {
+                loadAdminProductsTable();
+            } else if (tabId === 'category-management') {
+                loadCategories();
+            } else if (tabId === 'purchase') {
+                loadPurchaseProductDropdown();
+            } else if (tabId === 'reports') {
+                loadReportsData();
+            } else if (tabId === 'stock') {
+                loadInventoryTable();
+                checkLowStock();
+            } else if (tabId === 'notifications') {
+                loadAdminNotifications();
+            }
+        }
+
+        // Category management
+        function loadCategories() {
+            const container = document.getElementById('categories-container');
+            container.innerHTML = '';
+            
+            categories.forEach(category => {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+                categoryCard.innerHTML = `
+                    <div class="category-header">
+                        <div class="category-name">${category.name}</div>
+                        <button class="btn btn-danger" onclick="deleteCategory('${category.id}')">Delete</button>
+                    </div>
+                    <ul class="subcategory-list">
+                        ${category.subcategories.map(subcategory => `
+                            <li class="subcategory-item">
+                                <span>${subcategory.name}</span>
+                                <button class="btn btn-danger btn-sm" onclick="deleteSubcategory('${category.id}', '${subcategory.id}')">Delete</button>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <div class="form-row" style="margin-top: 15px;">
+                        <input type="text" class="form-control" id="new-subcategory-${category.id}" placeholder="New subcategory name">
+                        <button class="btn btn-secondary" onclick="addSubcategory('${category.id}')">Add Subcategory</button>
+                    </div>
+                `;
+                container.appendChild(categoryCard);
+            });
+        }
+
+        function addCategory() {
+            const categoryName = document.getElementById('new-category-name').value.trim();
+            if (!categoryName) {
+                alert('Please enter a category name');
+                return;
+            }
+            
+            const categoryId = categoryName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            
+            categories.push({
+                id: categoryId,
+                name: categoryName,
+                subcategories: []
+            });
+            
+            document.getElementById('new-category-name').value = '';
+            loadCategories();
+            populateCategoryDropdowns();
+            showNotification(`Category "${categoryName}" added successfully!`);
+        }
+
+        function deleteCategory(categoryId) {
+            if (!confirm('Are you sure you want to delete this category? Products in this category will lose their category assignment.')) {
+                return;
+            }
+            
+            const index = categories.findIndex(c => c.id === categoryId);
+            if (index !== -1) {
+                categories.splice(index, 1);
+                loadCategories();
+                populateCategoryDropdowns();
+                showNotification('Category deleted successfully!');
+            }
+        }
+
+        function addSubcategory(categoryId) {
+            const input = document.getElementById(`new-subcategory-${categoryId}`);
+            const subcategoryName = input.value.trim();
+            
+            if (!subcategoryName) {
+                alert('Please enter a subcategory name');
+                return;
+            }
+            
+            const category = categories.find(c => c.id === categoryId);
+            if (!category) return;
+            
+            const subcategoryId = subcategoryName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            
+            category.subcategories.push({
+                id: subcategoryId,
+                name: subcategoryName
+            });
+            
+            input.value = '';
+            loadCategories();
+            populateCategoryDropdowns();
+            showNotification(`Subcategory "${subcategoryName}" added successfully!`);
+        }
+
+        function deleteSubcategory(categoryId, subcategoryId) {
+            if (!confirm('Are you sure you want to delete this subcategory?')) {
+                return;
+            }
+            
+            const category = categories.find(c => c.id === categoryId);
+            if (!category) return;
+            
+            const index = category.subcategories.findIndex(s => s.id === subcategoryId);
+            if (index !== -1) {
+                category.subcategories.splice(index, 1);
+                loadCategories();
+                populateCategoryDropdowns();
+                showNotification('Subcategory deleted successfully!');
+            }
+        }
+
+        function populateCategoryDropdowns() {
+            const categorySelect = document.getElementById('product-category');
+            const subcategorySelect = document.getElementById('product-subcategory');
+            
+            // Clear existing options
+            categorySelect.innerHTML = '<option value="">Select Category</option>';
+            subcategorySelect.innerHTML = '<option value="">Select Subcategory</option>';
+            
+            // Add category options
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.name;
+                categorySelect.appendChild(option);
+            });
+            
+            // Update subcategories when category changes
+            categorySelect.addEventListener('change', function() {
+                const categoryId = this.value;
+                subcategorySelect.innerHTML = '<option value="">Select Subcategory</option>';
+                
+                if (categoryId) {
+                    const category = categories.find(c => c.id === categoryId);
+                    if (category) {
+                        category.subcategories.forEach(subcategory => {
+                            const option = document.createElement('option');
+                            option.value = subcategory.id;
+                            option.textContent = subcategory.name;
+                            subcategorySelect.appendChild(option);
+                        });
+                    }
+                }
+            });
+        }
+
+        // Manual Image Upload Support
+        function handleImageUpload(event) {
+            const files = event.target.files;
+            const preview = document.getElementById('image-preview');
+            preview.innerHTML = '';
+            uploadedImages = [];
+            
+            for (let i = 0; i < Math.min(files.length, 5); i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'preview-image';
+                    preview.appendChild(img);
+                    
+                    // Store base64 encoded image
+                    uploadedImages.push(e.target.result);
+                    document.getElementById('uploaded-images').value = uploadedImages.join('|');
+                };
+                
+                reader.readAsDataURL(file);
+            }
+            
+            showNotification(`${files.length} images uploaded`);
+        }
+
+        // Product management
+        function loadAdminProductsTable() {
+            const container = document.getElementById('admin-products-table');
+            container.innerHTML = '';
+            
+            products.forEach(product => {
+                let stockStatus = '';
+                if (product.stock <= 0) {
+                    stockStatus = 'Out of Stock';
+                } else if (product.stock <= product.minStock) {
+                    stockStatus = 'Low Stock';
+                } else {
+                    stockStatus = 'In Stock';
+                }
+                
+                // Get category and subcategory names
+                const category = categories.find(c => c.id === product.category);
+                const subcategory = category ? category.subcategories.find(s => s.id === product.subcategory) : null;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.id}</td>
+                    <td>${product.title}</td>
+                    <td>${category ? category.name : product.category}</td>
+                    <td>${subcategory ? subcategory.name : product.subcategory}</td>
+                    <td>${product.ageGroup} years</td>
+                    <td>₹${product.currentPrice}</td>
+                    <td>${product.stock}</td>
+                    <td>${stockStatus}</td>
+                    <td class="table-actions">
+                        <button class="btn btn-secondary edit-product" data-id="${product.id}">Edit</button>
+                        <button class="btn btn-danger delete-product" data-id="${product.id}">Delete</button>
+                    </td>
+                `;
+                
+                container.appendChild(row);
+            });
+            
+            // Add event listeners
+            container.querySelectorAll('.edit-product').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    editProduct(productId);
+                });
+            });
+            
+            container.querySelectorAll('.delete-product').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    if (confirm('Are you sure you want to delete this product?')) {
+                        deleteProduct(productId);
+                    }
+                });
+            });
+        }
+
+        function editProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            switchAdminTab('add');
+            
+            document.getElementById('product-title').value = product.title;
+            document.getElementById('product-category').value = product.category;
+            document.getElementById('product-subcategory').value = product.subcategory;
+            document.getElementById('product-age').value = product.ageGroup;
+            document.getElementById('original-price').value = product.originalPrice;
+            document.getElementById('current-price').value = product.currentPrice;
+            document.getElementById('cost-price').value = product.costPrice;
+            document.getElementById('stock-quantity').value = product.stock;
+            document.getElementById('min-stock').value = product.minStock;
+            document.getElementById('supplier').value = product.supplier;
+            document.getElementById('product-description').value = product.description;
+            document.getElementById('is-bestseller').checked = product.isBestseller;
+            document.getElementById('is-new').checked = product.isNew;
+            document.getElementById('on-sale').checked = product.onSale;
+            document.getElementById('edit-product-id').value = product.id;
+            
+            // Clear image preview and load existing images
+            const preview = document.getElementById('image-preview');
+            preview.innerHTML = '';
+            uploadedImages = [];
+            
+            if (product.images && product.images.length > 0) {
+                product.images.forEach(img => {
+                    const imageUrl = img.startsWith('http') ? img : `images/${img}`;
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageUrl;
+                    imgElement.className = 'preview-image';
+                    preview.appendChild(imgElement);
+                    uploadedImages.push(img);
+                });
+                document.getElementById('uploaded-images').value = product.images.join(',');
+            }
+            
+            // Populate subcategories for the selected category
+            populateCategoryDropdowns();
+            document.getElementById('product-category').value = product.category;
+            document.getElementById('product-category').dispatchEvent(new Event('change'));
+            
+            // Set subcategory after a short delay to ensure options are loaded
+            setTimeout(() => {
+                document.getElementById('product-subcategory').value = product.subcategory;
+            }, 100);
+            
+            document.getElementById('save-product').textContent = 'Update Product';
+            editingProductId = productId;
+        }
+
+        function saveProduct(e) {
+            e.preventDefault();
+            
+            const productId = editingProductId || products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+            const editMode = editingProductId !== null;
+            
+            // Get images from uploaded images or existing product images
+            let images = [];
+            if (uploadedImages.length > 0) {
+                images = uploadedImages;
+            } else if (editMode) {
+                const existingProduct = products.find(p => p.id === editingProductId);
+                images = existingProduct?.images || [];
+            }
+            
+            const product = {
+                id: editMode ? editingProductId : productId,
+                title: document.getElementById('product-title').value,
+                category: document.getElementById('product-category').value,
+                subcategory: document.getElementById('product-subcategory').value,
+                ageGroup: document.getElementById('product-age').value,
+                originalPrice: parseInt(document.getElementById('original-price').value),
+                currentPrice: parseInt(document.getElementById('current-price').value),
+                costPrice: parseInt(document.getElementById('cost-price').value),
+                stock: parseInt(document.getElementById('stock-quantity').value),
+                minStock: parseInt(document.getElementById('min-stock').value) || 5,
+                supplier: document.getElementById('supplier').value || 'Unknown',
+                description: document.getElementById('product-description').value,
+                images: images,
+                isBestseller: document.getElementById('is-bestseller').checked,
+                isNew: document.getElementById('is-new').checked,
+                onSale: document.getElementById('on-sale').checked,
+                totalSold: editMode ? products.find(p => p.id === editingProductId)?.totalSold || 0 : 0,
+                lastRestocked: editMode ? products.find(p => p.id === editingProductId)?.lastRestocked || new Date().toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+                type: 'Product',
+                stockHistory: editMode ? products.find(p => p.id === editingProductId)?.stockHistory || [] : []
+            };
+            
+            if (editMode) {
+                const index = products.findIndex(p => p.id === editingProductId);
+                if (index !== -1) {
+                    products[index] = product;
+                }
+            } else {
+                products.push(product);
+            }
+            
+            clearProductForm();
+            
+            // Refresh displays
+            loadCategoryProducts('all', 'all');
+            loadBooksProducts();
+            loadToysProducts();
+            loadAdminProductsTable();
+            updateDashboard();
+            loadInventoryTable();
+            loadPurchaseProductDropdown();
+            checkLowStock();
+            
+            switchAdminTab('products');
+            
+            showNotification(`Product ${editMode ? 'updated' : 'added'} successfully!`);
+        }
+
+        function deleteProduct(productId) {
+            const index = products.findIndex(p => p.id === productId);
+            if (index !== -1) {
+                products.splice(index, 1);
+                
+                loadCategoryProducts('all', 'all');
+                loadBooksProducts();
+                loadToysProducts();
+                loadAdminProductsTable();
+                updateDashboard();
+                loadInventoryTable();
+                loadPurchaseProductDropdown();
+                checkLowStock();
+                
+                showNotification('Product deleted successfully!');
+            }
+        }
+
+        function clearProductForm() {
+            document.getElementById('product-form').reset();
+            document.getElementById('edit-product-id').value = '';
+            document.getElementById('save-product').textContent = 'Save Product';
+            document.getElementById('stock-quantity').value = 10;
+            document.getElementById('min-stock').value = 5;
+            document.getElementById('uploaded-images').value = '';
+            document.getElementById('image-preview').innerHTML = '';
+            uploadedImages = [];
+            editingProductId = null;
+        }
+
+        // Report functions
+        function updateDashboard() {
+            const today = new Date().toISOString().split('T')[0];
+            const currentMonth = today.substring(0, 7); // YYYY-MM
+            
+            // Calculate today's revenue
+            const todayRevenue = orders
+                .filter(order => order.date === today)
+                .reduce((sum, order) => sum + order.total, 0);
+            
+            // Calculate this month's orders
+            const monthOrders = orders
+                .filter(order => order.date.startsWith(currentMonth))
+                .length;
+            
+            // Calculate inventory value
+            const inventoryValue = products.reduce((sum, product) => sum + (product.stock * product.costPrice), 0);
+            
+            // Calculate this month's purchases
+            const monthPurchase = purchases
+                .filter(purchase => purchase.date.startsWith(currentMonth))
+                .reduce((sum, purchase) => sum + purchase.total, 0);
+            
+            // Calculate profit and loss for this month
+            let monthProfit = 0;
+            let monthCost = 0;
+            
+            orders.filter(order => order.date.startsWith(currentMonth)).forEach(order => {
+                order.items.forEach(item => {
+                    const product = products.find(p => p.id === item.productId);
+                    if (product) {
+                        const revenue = item.quantity * item.price;
+                        const cost = item.quantity * product.costPrice;
+                        monthProfit += (revenue - cost);
+                        monthCost += cost;
+                    }
+                });
+            });
+            
+            // Update dashboard
+            document.getElementById('today-revenue').textContent = todayRevenue;
+            document.getElementById('month-orders').textContent = monthOrders;
+            document.getElementById('inventory-value').textContent = inventoryValue;
+            document.getElementById('month-purchase').textContent = monthPurchase;
+            
+            // Update profit/loss chart
+            const profitAmount = Math.max(monthProfit, 0);
+            const lossAmount = Math.max(-monthProfit, 0);
+            document.getElementById('profit-amount').textContent = profitAmount;
+            document.getElementById('loss-amount').textContent = lossAmount;
+            
+            // Update chart visual
+            const profitPercentage = monthProfit >= 0 ? 100 : 50;
+            const chart = document.querySelector('.profit-loss-chart');
+            if (monthProfit >= 0) {
+                chart.style.background = `linear-gradient(90deg, var(--success) ${profitPercentage}%, var(--sale-red) 0%)`;
+            } else {
+                chart.style.background = `linear-gradient(90deg, var(--success) 0%, var(--sale-red) ${100 - profitPercentage}%)`;
+            }
+        }
+
+        function loadReportsData() {
+            // Get date range based on selected period
+            let startDate, endDate;
+            const today = new Date().toISOString().split('T')[0];
+            
+            switch(reportPeriod) {
+                case 'today':
+                    startDate = today;
+                    endDate = today;
+                    break;
+                case 'yesterday':
+                    const yesterday = new Date();
+                    yesterday.setDate(yesterday.getDate() - 1);
+                    startDate = yesterday.toISOString().split('T')[0];
+                    endDate = startDate;
+                    break;
+                case 'week':
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    startDate = weekAgo.toISOString().split('T')[0];
+                    endDate = today;
+                    break;
+                case 'month':
+                    startDate = today.substring(0, 7) + '-01';
+                    endDate = today;
+                    break;
+                case 'quarter':
+                    const quarter = Math.floor((new Date().getMonth() + 3) / 3);
+                    const quarterStartMonth = (quarter - 1) * 3;
+                    startDate = today.substring(0, 4) + '-' + (quarterStartMonth + 1).toString().padStart(2, '0') + '-01';
+                    endDate = today;
+                    break;
+                case 'year':
+                    startDate = today.substring(0, 4) + '-01-01';
+                    endDate = today;
+                    break;
+                case 'custom':
+                    startDate = document.getElementById('start-date').value;
+                    endDate = document.getElementById('end-date').value;
+                    break;
+                default:
+                    startDate = today;
+                    endDate = today;
+            }
+            
+            // Filter orders and purchases by date range
+            const filteredOrders = orders.filter(order => 
+                order.date >= startDate && order.date <= endDate
+            );
+            
+            const filteredPurchases = purchases.filter(purchase => 
+                purchase.date >= startDate && purchase.date <= endDate
+            );
+            
+            // Calculate sales data
+            const totalSales = filteredOrders.reduce((sum, order) => sum + order.total, 0);
+            const totalProductsSold = filteredOrders.reduce((sum, order) => 
+                sum + order.items.reduce((itemSum, item) => itemSum + item.quantity, 0), 0
+            );
+            const avgOrderValue = filteredOrders.length > 0 ? totalSales / filteredOrders.length : 0;
+            
+            // Calculate purchase data
+            const totalPurchases = filteredPurchases.reduce((sum, purchase) => sum + purchase.total, 0);
+            const totalItemsPurchased = filteredPurchases.reduce((sum, purchase) => 
+                sum + purchase.items.reduce((itemSum, item) => itemSum + item.quantity, 0), 0
+            );
+            const avgPurchaseValue = filteredPurchases.length > 0 ? totalPurchases / filteredPurchases.length : 0;
+            
+            // Calculate stock movement
+            let stockAdded = 0;
+            let stockSold = 0;
+            
+            // Stock from purchases
+            filteredPurchases.forEach(purchase => {
+                purchase.items.forEach(item => {
+                    stockAdded += item.quantity;
+                });
+            });
+            
+            // Stock from sales
+            filteredOrders.forEach(order => {
+                order.items.forEach(item => {
+                    stockSold += item.quantity;
+                });
+            });
+            
+            // Update reports
+            document.getElementById('total-sales').textContent = totalSales;
+            document.getElementById('total-products-sold').textContent = totalProductsSold;
+            document.getElementById('avg-order-value').textContent = avgOrderValue.toFixed(2);
+            
+            document.getElementById('total-purchases').textContent = totalPurchases;
+            document.getElementById('total-items-purchased').textContent = totalItemsPurchased;
+            document.getElementById('avg-purchase-value').textContent = avgPurchaseValue.toFixed(2);
+            
+            document.getElementById('stock-added').textContent = stockAdded;
+            document.getElementById('stock-sold').textContent = stockSold;
+            document.getElementById('net-stock-change').textContent = stockAdded - stockSold;
+            
+            // Load detailed P&L for the period
+            loadDetailedProfitLoss(startDate, endDate);
+        }
+
+        function loadDetailedProfitLoss(startDate, endDate) {
+            const container = document.getElementById('detailed-profit-loss');
+            
+            // Filter orders by date range
+            const filteredOrders = orders.filter(order => 
+                order.date >= startDate && order.date <= endDate
+            );
+            
+            let html = `
+                <table class="products-table" style="margin-top: 20px;">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Product</th>
+                            <th>Units Sold</th>
+                            <th>Revenue</th>
+                            <th>Cost</th>
+                            <th>Profit/Loss</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            let totalRevenue = 0;
+            let totalCost = 0;
+            let totalProfit = 0;
+            
+            // Process each order
+            filteredOrders.forEach(order => {
+                order.items.forEach(item => {
+                    const product = products.find(p => p.id === item.productId);
+                    if (product) {
+                        const revenue = item.quantity * item.price;
+                        const cost = item.quantity * product.costPrice;
+                        const profit = revenue - cost;
+                        
+                        totalRevenue += revenue;
+                        totalCost += cost;
+                        totalProfit += profit;
+                        
+                        html += `
+                            <tr>
+                                <td>${order.date}</td>
+                                <td>${product.title}</td>
+                                <td>${item.quantity}</td>
+                                <td>₹${revenue}</td>
+                                <td>₹${cost}</td>
+                                <td style="color: ${profit >= 0 ? 'var(--success)' : 'var(--sale-red)'};">
+                                    ₹${profit} ${profit >= 0 ? '▲' : '▼'}
+                                </td>
+                            </tr>
+                        `;
+                    }
+                });
+            });
+            
+            html += `
+                    <tr style="font-weight: bold; background-color: var(--light-gray);">
+                        <td colspan="2">TOTAL (${filteredOrders.length} orders)</td>
+                        <td>${filteredOrders.reduce((sum, order) => 
+                            sum + order.items.reduce((itemSum, item) => itemSum + item.quantity, 0), 0
+                        )}</td>
+                        <td>₹${totalRevenue}</td>
+                        <td>₹${totalCost}</td>
+                        <td style="color: ${totalProfit >= 0 ? 'var(--success)' : 'var(--sale-red)'};">
+                            ₹${totalProfit} ${totalProfit >= 0 ? '▲' : '▼'}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                <h4>Summary for ${startDate} to ${endDate}</h4>
+                <p><strong>Total Revenue:</strong> ₹${totalRevenue}</p>
+                <p><strong>Total Cost of Goods Sold:</strong> ₹${totalCost}</p>
+                <p><strong>Gross Profit:</strong> ₹${totalProfit}</p>
+                <p><strong>Profit Margin:</strong> ${totalRevenue > 0 ? ((totalProfit / totalRevenue) * 100).toFixed(2) : 0}%</p>
+            </div>
+            `;
+            
+            container.innerHTML = html;
+        }
+
+        // Export functions
+        function exportToCSV(data, filename) {
+            const csvContent = "data:text/csv;charset=utf-8," + data;
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", filename);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function exportSalesCSV() {
+            const today = new Date().toISOString().split('T')[0];
+            let csv = "Order ID,Date,Time,Customer,Email,Items,Total,Status,Payment Method\n";
+            orders.forEach(order => {
+                const items = order.items.map(item => {
+                    const product = products.find(p => p.id === item.productId);
+                    return `${product?.title || 'Unknown'} x${item.quantity}`;
+                }).join('; ');
+                csv += `${order.id},${order.date},${order.time},${order.customer},${order.email},"${items}",${order.total},${order.status},${order.paymentMethod}\n`;
+            });
+            exportToCSV(csv, `sales_report_${today}.csv`);
+            showNotification("Sales report exported successfully!");
+        }
+
+        function exportPurchaseCSV() {
+            const today = new Date().toISOString().split('T')[0];
+            let csv = "Purchase ID,Date,Supplier,Items,Total,Status\n";
+            purchases.forEach(purchase => {
+                const items = purchase.items.map(item => {
+                    const product = products.find(p => p.id === item.productId);
+                    return `${product?.title || 'Unknown'} x${item.quantity} @₹${item.unitPrice}`;
+                }).join('; ');
+                csv += `${purchase.id},${purchase.date},${purchase.supplier},"${items}",${purchase.total},${purchase.status}\n`;
+            });
+            exportToCSV(csv, `purchase_report_${today}.csv`);
+            showNotification("Purchase report exported successfully!");
+        }
+
+        function exportStockCSV() {
+            const today = new Date().toISOString().split('T')[0];
+            let csv = "Product ID,Product Name,Category,Current Stock,Min Stock,Status,Last Restocked,Supplier,Cost Price,Selling Price\n";
+            products.forEach(product => {
+                const status = product.stock <= 0 ? 'Out of Stock' : product.stock <= product.minStock ? 'Low Stock' : 'In Stock';
+                const category = categories.find(c => c.id === product.category);
+                csv += `${product.id},${product.title},${category?.name || product.category},${product.stock},${product.minStock},${status},${product.lastRestocked},${product.supplier},${product.costPrice},${product.currentPrice}\n`;
+            });
+            exportToCSV(csv, `stock_report_${today}.csv`);
+            showNotification("Stock report exported successfully!");
+        }
+
+        function exportProfitLoss() {
+            const today = new Date().toISOString().split('T')[0];
+            const startDate = today.substring(0, 7) + '-01'; // First day of current month
+            const endDate = today;
+            
+            const filteredOrders = orders.filter(order => 
+                order.date >= startDate && order.date <= endDate
+            );
+            
+            let csv = "Date,Order ID,Product,Units Sold,Selling Price,Cost Price,Revenue,Cost,Profit/Loss\n";
+            let totalRevenue = 0;
+            let totalCost = 0;
+            
+            filteredOrders.forEach(order => {
+                order.items.forEach(item => {
+                    const product = products.find(p => p.id === item.productId);
+                    if (product) {
+                        const revenue = item.quantity * item.price;
+                        const cost = item.quantity * product.costPrice;
+                        const profit = revenue - cost;
+                        
+                        totalRevenue += revenue;
+                        totalCost += cost;
+                        
+                        csv += `${order.date},${order.id},${product.title},${item.quantity},${item.price},${product.costPrice},${revenue},${cost},${profit}\n`;
+                    }
+                });
+            });
+            
+            csv += `\nTOTAL,,,,,,${totalRevenue},${totalCost},${totalRevenue - totalCost}`;
+            exportToCSV(csv, `profit_loss_report_${today}.csv`);
+            showNotification("Profit & Loss report exported successfully!");
+        }
+
+        function exportMonthlyReport() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+            const currentMonth = today.getMonth() + 1;
+            
+            let csv = `Monthly Report for ${currentMonth}/${currentYear}\n\n`;
+            csv += "Date,Orders,Revenue,Purchases,Stock Added,Stock Sold,Net Profit\n";
+            
+            // Get all days in current month
+            const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+            
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateStr = `${currentYear}-${currentMonth.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+                
+                const dayOrders = orders.filter(order => order.date === dateStr);
+                const dayPurchases = purchases.filter(purchase => purchase.date === dateStr);
+                
+                const dayRevenue = dayOrders.reduce((sum, order) => sum + order.total, 0);
+                const dayPurchasesTotal = dayPurchases.reduce((sum, purchase) => sum + purchase.total, 0);
+                const stockAdded = dayPurchases.reduce((sum, purchase) => 
+                    sum + purchase.items.reduce((itemSum, item) => itemSum + item.quantity, 0), 0
+                );
+                const stockSold = dayOrders.reduce((sum, order) => 
+                    sum + order.items.reduce((itemSum, item) => itemSum + item.quantity, 0), 0
+                );
+                
+                // Calculate profit
+                let dayProfit = 0;
+                dayOrders.forEach(order => {
+                    order.items.forEach(item => {
+                        const product = products.find(p => p.id === item.productId);
+                        if (product) {
+                            dayProfit += (item.quantity * item.price) - (item.quantity * product.costPrice);
+                        }
+                    });
+                });
+                
+                csv += `${dateStr},${dayOrders.length},${dayRevenue},${dayPurchasesTotal},${stockAdded},${stockSold},${dayProfit}\n`;
+            }
+            
+            exportToCSV(csv, `monthly_report_${currentYear}_${currentMonth}.csv`);
+            showNotification("Monthly report exported successfully!");
+        }
+
+        function exportYearlyReport() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+            
+            let csv = `Yearly Report for ${currentYear}\n\n`;
+            csv += "Month,Orders,Revenue,Purchases,Stock Added,Stock Sold,Net Profit\n";
+            
+            for (let month = 1; month <= 12; month++) {
+                const monthStr = month.toString().padStart(2, '0');
+                const startDate = `${currentYear}-${monthStr}-01`;
+                const endDate = `${currentYear}-${monthStr}-${new Date(currentYear, month, 0).getDate()}`;
+                
+                const monthOrders = orders.filter(order => 
+                    order.date >= startDate && order.date <= endDate
+                );
+                const monthPurchases = purchases.filter(purchase => 
+                    purchase.date >= startDate && purchase.date <= endDate
+                );
+                
+                const monthRevenue = monthOrders.reduce((sum, order) => sum + order.total, 0);
+                const monthPurchasesTotal = monthPurchases.reduce((sum, purchase) => sum + purchase.total, 0);
+                const stockAdded = monthPurchases.reduce((sum, purchase) => 
+                    sum + purchase.items.reduce((itemSum, item) => itemSum + item.quantity, 0), 0
+                );
+                const stockSold = monthOrders.reduce((sum, order) => 
+                    sum + order.items.reduce((itemSum, item) => itemSum + item.quantity, 0), 0
+                );
+                
+                // Calculate profit
+                let monthProfit = 0;
+                monthOrders.forEach(order => {
+                    order.items.forEach(item => {
+                        const product = products.find(p => p.id === item.productId);
+                        if (product) {
+                            monthProfit += (item.quantity * item.price) - (item.quantity * product.costPrice);
+                        }
+                    });
+                });
+                
+                const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                csv += `${monthNames[month-1]},${monthOrders.length},${monthRevenue},${monthPurchasesTotal},${stockAdded},${stockSold},${monthProfit}\n`;
+            }
+            
+            exportToCSV(csv, `yearly_report_${currentYear}.csv`);
+            showNotification("Yearly report exported successfully!");
+        }
+
+        // Stock Management Functions
+        function checkLowStock() {
+            const lowStockProducts = products.filter(p => p.stock <= p.minStock && p.stock > 0);
+            const outOfStockProducts = products.filter(p => p.stock <= 0);
+            
+            const alertContainer = document.getElementById('low-stock-alert');
+            const itemsContainer = document.getElementById('low-stock-items');
+            
+            if (lowStockProducts.length === 0 && outOfStockProducts.length === 0) {
+                alertContainer.style.display = 'none';
+                return;
+            }
+            
+            alertContainer.style.display = 'block';
+            let html = '';
+            
+            if (lowStockProducts.length > 0) {
+                html += '<p><strong>Low Stock:</strong></p><ul>';
+                lowStockProducts.forEach(product => {
+                    html += `<li>${product.title} - ${product.stock} units left (min: ${product.minStock})</li>`;
+                });
+                html += '</ul>';
+            }
+            
+            if (outOfStockProducts.length > 0) {
+                html += '<p><strong>Out of Stock:</strong></p><ul>';
+                outOfStockProducts.forEach(product => {
+                    html += `<li>${product.title}</li>`;
+                });
+                html += '</ul>';
+            }
+            
+            itemsContainer.innerHTML = html;
+        }
+
+        function loadInventoryTable() {
+            const container = document.getElementById('inventory-table');
+            container.innerHTML = '';
+            
+            products.forEach(product => {
+                let status, statusClass;
+                if (product.stock <= 0) {
+                    status = 'Out of Stock';
+                    statusClass = 'stock-out';
+                } else if (product.stock <= product.minStock) {
+                    status = 'Low Stock';
+                    statusClass = 'stock-low';
+                } else {
+                    status = 'In Stock';
+                    statusClass = 'stock-in';
+                }
+                
+                // Calculate stock movement in last 30 days
+                const thirtyDaysAgo = new Date();
+                thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                const thirtyDaysAgoStr = thirtyDaysAgo.toISOString().split('T')[0];
+                
+                const recentStockHistory = product.stockHistory?.filter(record => 
+                    record.date >= thirtyDaysAgoStr
+                ) || [];
+                
+                const stockMovement = recentStockHistory.reduce((sum, record) => sum + record.quantity, 0);
+                const movementText = stockMovement >= 0 ? `+${stockMovement}` : stockMovement;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.title}</td>
+                    <td>${product.stock}</td>
+                    <td>${product.minStock}</td>
+                    <td><span class="${statusClass}">${status}</span></td>
+                    <td>${product.lastRestocked}</td>
+                    <td>${movementText}</td>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function loadStockMovementTable() {
+            const container = document.getElementById('stock-movement-table');
+            container.innerHTML = '';
+            
+            // Collect all stock history from products
+            const allStockHistory = [];
+            
+            products.forEach(product => {
+                if (product.stockHistory) {
+                    product.stockHistory.forEach(record => {
+                        allStockHistory.push({
+                            date: record.date,
+                            product: product.title,
+                            type: record.type,
+                            quantity: record.quantity,
+                            reference: record.reference
+                        });
+                    });
+                }
+            });
+            
+            // Sort by date (newest first)
+            allStockHistory.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Display last 20 records
+            allStockHistory.slice(0, 20).forEach(record => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${record.date}</td>
+                    <td>${record.product}</td>
+                    <td><span style="color: ${record.type === 'purchase' ? 'var(--success)' : 'var(--sale-red)'}">
+                        ${record.type === 'purchase' ? 'Purchase' : 'Sale'}
+                    </span></td>
+                    <td>${record.quantity > 0 ? '+' : ''}${record.quantity}</td>
+                    <td>${record.reference}</td>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function loadRestockProductDropdown() {
+            const select = document.getElementById('restock-product');
+            select.innerHTML = '<option value="">Select Product to Restock</option>';
+            
+            products.forEach(product => {
+                const option = document.createElement('option');
+                option.value = product.id;
+                option.textContent = `${product.title} (Current: ${product.stock}, Min: ${product.minStock})`;
+                select.appendChild(option);
+            });
+        }
+
+        function restockProduct() {
+            const productId = parseInt(document.getElementById('restock-product').value);
+            const quantity = parseInt(document.getElementById('restock-quantity').value);
+            
+            if (!productId || !quantity || quantity <= 0) {
+                alert('Please select a product and enter a valid quantity');
+                return;
+            }
+            
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            product.stock += quantity;
+            product.lastRestocked = new Date().toISOString().split('T')[0];
+            
+            // Add to stock history
+            if (!product.stockHistory) product.stockHistory = [];
+            product.stockHistory.push({
+                date: product.lastRestocked,
+                type: "restock",
+                quantity: quantity,
+                reference: "Manual Restock"
+            });
+            
+            // Update all displays
+            loadCategoryProducts('all', 'all');
+            loadBooksProducts();
+            loadToysProducts();
+            loadAdminProductsTable();
+            loadInventoryTable();
+            loadRestockProductDropdown();
+            loadStockMovementTable();
+            checkLowStock();
+            updateDashboard();
+            
+            showNotification(`${product.title} restocked with ${quantity} units!`);
+            document.getElementById('restock-quantity').value = 10;
+        }
+
+        // Purchase Entry Functions
+        function loadPurchaseProductDropdown() {
+            const select = document.getElementById('purchase-product');
+            select.innerHTML = '<option value="">Select Product</option>';
+            
+            products.forEach(product => {
+                const option = document.createElement('option');
+                option.value = product.id;
+                option.textContent = `${product.title} (Current Stock: ${product.stock})`;
+                select.appendChild(option);
+            });
+        }
+
+        function updatePurchaseTotal() {
+            const quantity = parseInt(document.getElementById('purchase-quantity').value) || 0;
+            const price = parseFloat(document.getElementById('purchase-price').value) || 0;
+            const total = quantity * price;
+            
+            document.getElementById('purchase-total').value = total.toFixed(2);
+        }
+
+        function addPurchaseItem() {
+            const productId = parseInt(document.getElementById('purchase-product').value);
+            const quantity = parseInt(document.getElementById('purchase-quantity').value);
+            const unitPrice = parseFloat(document.getElementById('purchase-price').value);
+            
+            if (!productId || !quantity || !unitPrice) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const existingItem = currentPurchaseItems.find(item => item.productId === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+                existingItem.total = existingItem.quantity * existingItem.unitPrice;
+            } else {
+                currentPurchaseItems.push({
+                    productId: productId,
+                    title: product.title,
+                    quantity: quantity,
+                    unitPrice: unitPrice,
+                    total: quantity * unitPrice
+                });
+            }
+            
+            updatePurchaseItemsTable();
+            updatePurchaseGrandTotal();
+            
+            // Clear form
+            document.getElementById('purchase-quantity').value = 10;
+            document.getElementById('purchase-price').value = '';
+            document.getElementById('purchase-total').value = '';
+        }
+
+        function updatePurchaseItemsTable() {
+            const container = document.getElementById('purchase-items-table');
+            container.innerHTML = '';
+            
+            currentPurchaseItems.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.title}</td>
+                    <td>${item.quantity}</td>
+                    <td>₹${item.unitPrice.toFixed(2)}</td>
+                    <td>₹${item.total.toFixed(2)}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" onclick="removePurchaseItem(${index})">Remove</button>
+                    </td>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function removePurchaseItem(index) {
+            currentPurchaseItems.splice(index, 1);
+            updatePurchaseItemsTable();
+            updatePurchaseGrandTotal();
+        }
+
+        function updatePurchaseGrandTotal() {
+            const grandTotal = currentPurchaseItems.reduce((sum, item) => sum + item.total, 0);
+            document.getElementById('purchase-grand-total').textContent = grandTotal.toFixed(2);
+        }
+
+        function savePurchase() {
+            const supplier = document.getElementById('purchase-supplier').value;
+            const date = document.getElementById('purchase-date').value;
+            
+            if (!supplier || !date) {
+                alert('Please fill supplier name and date');
+                return;
+            }
+            
+            if (currentPurchaseItems.length === 0) {
+                alert('Please add at least one item to the purchase');
+                return;
+            }
+            
+            const purchaseId = 1000 + purchases.length + 1;
+            const total = currentPurchaseItems.reduce((sum, item) => sum + item.total, 0);
+            
+            const now = new Date();
+            const purchaseTime = now.toTimeString().split(' ')[0];
+            
+            // Update stock for each product
+            currentPurchaseItems.forEach(item => {
+                const product = products.find(p => p.id === item.productId);
+                if (product) {
+                    product.stock += item.quantity;
+                    product.lastRestocked = date;
+                    
+                    // Add to stock history
+                    if (!product.stockHistory) product.stockHistory = [];
+                    product.stockHistory.push({
+                        date: date,
+                        type: "purchase",
+                        quantity: item.quantity,
+                        reference: `PO-${purchaseId}`
+                    });
+                }
+            });
+            
+            // Create purchase entry
+            const purchase = {
+                id: purchaseId,
+                date: date,
+                supplier: supplier,
+                items: currentPurchaseItems.map(item => ({
+                    productId: item.productId,
+                    quantity: item.quantity,
+                    unitPrice: item.unitPrice,
+                    total: item.total
+                })),
+                total: total,
+                status: "completed"
+            };
+            
+            purchases.push(purchase);
+            
+            // Add notification
+            addNotification(
+                'purchase',
+                'Purchase Order Completed',
+                `Purchase #${purchaseId} from ${supplier} for ₹${total}`,
+                date,
+                purchaseTime
+            );
+            
+            // Reset form
+            document.getElementById('purchase-supplier').value = '';
+            currentPurchaseItems = [];
+            updatePurchaseItemsTable();
+            updatePurchaseGrandTotal();
+            
+            // Update displays
+            loadPurchaseHistory();
+            loadInventoryTable();
+            loadStockMovementTable();
+            loadCategoryProducts('all', 'all');
+            loadBooksProducts();
+            loadToysProducts();
+            checkLowStock();
+            updateDashboard();
+            updateNotificationBadge();
+            
+            showNotification(`Purchase #${purchaseId} saved successfully!`);
+        }
+
+        function loadPurchaseHistory() {
+            const container = document.getElementById('purchase-history-table');
+            container.innerHTML = '';
+            
+            // Sort purchases by date (newest first)
+            const sortedPurchases = [...purchases].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            sortedPurchases.slice(0, 10).forEach(purchase => {
+                const items = purchase.items.map(item => {
+                    const product = products.find(p => p.id === item.productId);
+                    return `${product?.title || 'Unknown'} x${item.quantity}`;
+                }).join(', ');
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${purchase.id}</td>
+                    <td>${purchase.date}</td>
+                    <td>${purchase.supplier}</td>
+                    <td>${items}</td>
+                    <td>₹${purchase.total}</td>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        // Notification Functions
+        function loadNotifications() {
+            const container = document.getElementById('notifications-list');
+            container.innerHTML = '';
+            
+            // Sort notifications by date (newest first)
+            const sortedNotifications = [...notifications].sort((a, b) => 
+                new Date(b.date + 'T' + b.time) - new Date(a.date + 'T' + a.time)
+            );
+            
+            if (sortedNotifications.length === 0) {
+                container.innerHTML = '<div class="notification-item"><p>No notifications</p></div>';
+                return;
+            }
+            
+            sortedNotifications.forEach(notification => {
+                const notificationDiv = document.createElement('div');
+                notificationDiv.className = `notification-item ${notification.read ? '' : 'unread'}`;
+                notificationDiv.innerHTML = `
+                    <strong>${notification.title}</strong>
+                    <p>${notification.message}</p>
+                    <div class="notification-date">${notification.date} ${notification.time}</div>
+                `;
+                
+                notificationDiv.addEventListener('click', () => {
+                    markNotificationAsRead(notification.id);
+                });
+                
+                container.appendChild(notificationDiv);
+            });
+        }
+
+        function loadAdminNotifications() {
+            const container = document.getElementById('admin-notifications-list');
+            container.innerHTML = '';
+            
+            // Sort notifications by date (newest first)
+            const sortedNotifications = [...notifications].sort((a, b) => 
+                new Date(b.date + 'T' + b.time) - new Date(a.date + 'T' + a.time)
+            );
+            
+            if (sortedNotifications.length === 0) {
+                container.innerHTML = '<p>No notifications</p>';
+                return;
+            }
+            
+            sortedNotifications.forEach(notification => {
+                const notificationDiv = document.createElement('div');
+                notificationDiv.className = `notification-item ${notification.read ? '' : 'unread'}`;
+                notificationDiv.innerHTML = `
+                    <strong>${notification.title}</strong>
+                    <p>${notification.message}</p>
+                    <div class="notification-date">${notification.date} ${notification.time}</div>
+                `;
+                container.appendChild(notificationDiv);
+            });
+        }
+
+        function addNotification(type, title, message, date, time) {
+            const notificationId = notifications.length > 0 ? Math.max(...notifications.map(n => n.id)) + 1 : 1;
+            
+            notifications.unshift({
+                id: notificationId,
+                type: type,
+                title: title,
+                message: message,
+                date: date,
+                time: time,
+                read: false
+            });
+            
+            updateNotificationBadge();
+            loadNotifications();
+        }
+
+        function markNotificationAsRead(notificationId) {
+            const notification = notifications.find(n => n.id === notificationId);
+            if (notification) {
+                notification.read = true;
+                updateNotificationBadge();
+                loadNotifications();
+            }
+        }
+
+        function markAllNotificationsRead() {
+            notifications.forEach(notification => {
+                notification.read = true;
+            });
+            updateNotificationBadge();
+            loadAdminNotifications();
+            showNotification('All notifications marked as read');
+        }
+
+        function clearAllNotifications() {
+            if (confirm('Are you sure you want to clear all notifications?')) {
+                notifications = [];
+                updateNotificationBadge();
+                loadAdminNotifications();
+                showNotification('All notifications cleared');
+            }
+        }
+
+        function updateNotificationBadge() {
+            const unreadCount = notifications.filter(n => !n.read).length;
+            const badge = document.querySelector('.notification-badge');
+            badge.textContent = unreadCount;
+            badge.style.display = unreadCount > 0 ? 'flex' : 'none';
+        }
+
+        // Utility function for notifications
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(to right, var(--hot-pink), var(--turquoise));
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+                z-index: 10000;
+                font-weight: bold;
+                animation: slideIn 0.3s, fadeOut 0.3s 2.7s;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Make functions available globally for inline onclick events
+        window.deleteCategory = deleteCategory;
+        window.deleteSubcategory = deleteSubcategory;
+        window.addSubcategory = addSubcategory;
+        window.removePurchaseItem = removePurchaseItem;
+    </script>
+</body>
+</html>
